@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZaiGlow Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Soft pink watercolor-style background */
+            background: radial-gradient(circle, #ffffff 0%, #fce4ec 100%);
+            font-family: 'Montserrat', sans-serif;
+            color: #7a3a5a;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 20px 0;
+            padding: 0 50px;
+        }
+
+        .footer-tag {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-top: 50px;
+        }
+
+        /* Heart Decorations */
+        .heart {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #d86d7e;
+            transform: rotate(-45deg);
+            opacity: 0.8;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #d86d7e;
+            border-radius: 50%;
+        }
+
+        .heart::before { top: -40px; left: 0; }
+        .heart::after { left: 40px; top: 0; }
+
+        .heart-top-left {
+            top: -20px;
+            left: -60px;
+            transform: rotate(-15deg) scale(0.8);
+        }
+
+        .heart-bottom-right {
+            bottom: -20px;
+            right: -60px;
+            transform: rotate(15deg) scale(0.8);
+        }
+
+        /* Simple watercolor splotch effect using box-shadows or gradients */
+        .bg-accent {
+            position: fixed;
+            z-index: -1;
+            filter: blur(60px);
+            border-radius: 50%;
+            background: #f8bbd0;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-accent" style="top: 10%; left: 10%;"></div>
+    <div class="bg-accent" style="bottom: 10%; right: 10%;"></div>
+
+    <div class="container">
+        <div class="heart heart-top-left"></div>
+        <div class="heart heart-bottom-right"></div>
+
+        <h1>Welcome To ZaiGlow</h1>
+        
+        <p>Thank you for choosing ZaiGlow and trusting me with your beauty</p>
+        
+        <p>Every client means so much to me, and I'm truly grateful for your support. 
+           My goal is to make you feel confident, relaxed, and glowing every time you leave.</p>
+        
+        <p>I can't wait to take care of you.</p>
+
+        <div class="footer-tag">Beauty , Redefined</div>
+    </div>
+
+</body>
+</html>
