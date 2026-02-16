@@ -2,336 +2,197 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price List | ZaiGlow</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ZaiGlow - Luxury Nail Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #d4af37;
-            --deep-purple: #4a1e3e;
-            --soft-pink: #fce4ec;
-            --gradient: linear-gradient(135deg, #7b4397 0%, #dc2430 100%);
-            --text-color: #4a4a4a;
-            --accent-pink: #f06292;
+            --soft-pink: #fff0f3;
+            --hot-pink: #ff4d8d;
+            --rose-gold: #d4a373;
+            --deep-pink: #852d43;
+            --white: #ffffff;
         }
 
-        * {
+        /* FORCE VISIBILITY ON MOBILE */
+        html, body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--gradient);
-            color: white;
-            min-height: 100vh;
-        }
-
-        /* Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo-area img {
-            height: 70px;
-            width: auto;
-            filter: brightness(0) invert(1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--soft-pink);
-        }
-
-        .page-container {
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .menu-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 800px;
             width: 100%;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            min-height: 100vh;
+            background-color: var(--soft-pink);
+            background-image: radial-gradient(#ffccd5 1px, transparent 1px);
+            background-size: 25px 25px;
+            color: var(--deep-pink);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
         }
 
-        .header-section {
+        /* Robust Main Container */
+        .main-wrapper {
+            position: relative;
+            z-index: 100; /* Forces content to the front layer */
+            display: block !important; 
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
             text-align: center;
-            margin-bottom: 30px;
+            padding: 40px 0;
+        }
+
+        .logo-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(133, 45, 67, 0.2);
+            background-color: white;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 8vw, 3.2rem);
             margin: 0;
-            font-family: 'Georgia', serif;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .tagline {
-            font-style: italic;
-            margin: 10px 0 20px;
+            font-family: 'Alex Brush', cursive;
+            font-size: 1.8rem;
+            color: var(--hot-pink);
         }
 
-        .policy {
-            font-size: 0.85rem;
-            font-style: italic;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+        .policy-banner {
+            background: var(--hot-pink);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(255, 77, 141, 0.3);
         }
 
-        .grid {
+        /* GRID SYSTEM */
+        .services-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        section {
-            margin-bottom: 25px;
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            border-bottom: 5px solid var(--rose-gold);
+        }
+
+        .card.special {
+            border: 2px dashed var(--hot-pink);
+            border-bottom: 5px solid var(--hot-pink);
         }
 
         h2 {
-            display: inline-block;
-            background: var(--soft-pink);
-            color: var(--deep-purple);
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            border-bottom: 1px dotted rgba(255,255,255,0.2);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 0 0 15px;
+            border-bottom: 1px solid var(--soft-pink);
             padding-bottom: 8px;
         }
 
-        .price {
-            font-weight: bold;
-            color: #ffd700;
-        }
-
-        .description {
-            font-size: 0.75rem;
-            color: #eee;
-            margin-top: -8px;
+        .service-item {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 10px;
+            font-size: 1rem;
         }
 
-        .add-ons-section {
-            grid-column: span 2;
+        .price-tag {
+            font-weight: 700;
+            color: var(--hot-pink);
         }
 
-        .add-ons-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+        .sub-text {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: -8px;
+            margin-bottom: 12px;
+            font-style: italic;
         }
 
-        /* Mobile Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            border-radius: 3px;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
-
-            .logo-area img {
-                height: 50px;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: rgba(74, 30, 62, 0.98);
-                backdrop-filter: blur(10px);
-                transition: 0.3s;
-                padding-top: 80px;
-            }
-
-            nav.active {
-                right: 0;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .add-ons-section {
-                grid-column: span 1;
-            }
-
-            .add-ons-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .menu-container {
-                padding: 30px 20px;
-            }
+        /* DESKTOP 3-COLUMN VIEW */
+        @media (min-width: 992px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-area">
-            <img src="logo.jpg" alt="ZaiGlow Logo">
-        </div>
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="pricelist.html">Price List</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </header>
+    <div class="main-wrapper">
+        <header>
+            <img src="logo.jpg" alt="ZaiGlow Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/150?text=Z'">
+            <h1>ZaiGlow</h1>
+            <div class="tagline">Where beauty meets art.</div>
+            <div class="policy-banner">12-HOUR CANCELLATION POLICY • 50% FEE</div>
+        </header>
 
-    <div class="page-container">
-        <div class="menu-container">
-            <div class="header-section">
-                <h1>ZaiGlow</h1>
-                <p class="tagline">Where beauty meets art.</p>
-                <div class="policy">
-                    12-hour cancellation policy: Reschedule or cancel in time to avoid a 50% fee.
-                </div>
+        <div class="services-grid">
+            <div class="card">
+                <h2>Gel</h2>
+                <div class="service-item"><span>Gel Overlay</span><span class="price-tag">R250</span></div>
+                <div class="service-item"><span>Gel Soak Off Only</span><span class="price-tag">R80</span></div>
+                <div class="service-item"><span>Soak & Reapply</span><span class="price-tag">R300</span></div>
+                <div class="service-item"><span>Gel Tips</span><span class="price-tag">R350</span></div>
             </div>
 
-            <div class="grid">
-                <section>
-                    <h2>Gel</h2>
-                    <div class="item"><span>Gel Overlay</span><span class="price">R250</span></div>
-                    <div class="item"><span>Gel Soak Off Only</span><span class="price">R80</span></div>
-                    <div class="item"><span>Gel Soak & Reapply</span><span class="price">R300</span></div>
-                    <div class="item"><span>Gel Tips</span><span class="price">R350</span></div>
-                </section>
+            <div class="card">
+                <h2>Mani & Pedi</h2>
+                <div class="service-item"><span>Glow Pedi/Mani</span><span class="price-tag">R400/300</span></div>
+                <p class="sub-text">Soak, scrub, mask, callus removal, and massage.</p>
+                <div class="service-item"><span>Classic Pedi/Mani</span><span class="price-tag">R300/250</span></div>
+                <p class="sub-text">Scrub, foot file, cuticle work, and massage.</p>
+            </div>
 
-                <section>
-                    <h2>Express</h2>
-                    <div class="item"><span>Pedi or Mani</span><span class="price">R200 each</span></div>
-                    <p class="description">Normal paint, cut, file, cuticle work.</p>
-                </section>
+            <div class="card">
+                <h2>Acrylic</h2>
+                <div class="service-item"><span>Acrylic Tips</span><span class="price-tag">R380</span></div>
+                <div class="service-item"><span>Acrylic Overlay</span><span class="price-tag">R300</span></div>
+                <div class="service-item"><span>2 Week Fill</span><span class="price-tag">R200</span></div>
+                <div class="service-item"><span>3 Week Fill</span><span class="price-tag">R260</span></div>
+            </div>
 
-                <section>
-                    <h2>Acrylic</h2>
-                    <div class="item"><span>Acrylic Tips</span><span class="price">R380</span></div>
-                    <div class="item"><span>Acrylic Overlay</span><span class="price">R300</span></div>
-                    <div class="item"><span>2 Week Fill</span><span class="price">R200</span></div>
-                    <div class="item"><span>3 Week Fill</span><span class="price">R260</span></div>
-                </section>
+            <div class="card">
+                <h2>Polygel</h2>
+                <div class="service-item"><span>Polygel Tips</span><span class="price-tag">R380</span></div>
+                <div class="service-item"><span>Polygel Overlay</span><span class="price-tag">R300</span></div>
+                <div class="service-item"><span>2 Week Fill</span><span class="price-tag">R200</span></div>
+                <div class="service-item"><span>3 Week Fill</span><span class="price-tag">R260</span></div>
+            </div>
 
-                <section>
-                    <h2>Polygel</h2>
-                    <div class="item"><span>Polygel Tips</span><span class="price">R380</span></div>
-                    <div class="item"><span>Polygel Overlay</span><span class="price">R300</span></div>
-                    <div class="item"><span>2 Week Fill</span><span class="price">R200</span></div>
-                    <div class="item"><span>3 Week Fill</span><span class="price">R260</span></div>
-                </section>
+            <div class="card">
+                <h2>Express</h2>
+                <div class="service-item"><span>Pedi or Mani</span><span class="price-tag">R200 ea.</span></div>
+                <p class="sub-text">Includes normal paint, cut, file, and cuticle work.</p>
+            </div>
 
-                <section style="grid-column: span 2;">
-                    <h2>Mani & Pedi</h2>
-                    <div class="item"><span>Glow Pedi</span><span class="price">R400</span></div>
-                    <div class="item"><span>Glow Mani</span><span class="price">R300</span></div>
-                    <p class="description">Soak, scrub, mask, callus removal, massage.</p>
-                    <div class="item"><span>Classic Pedi</span><span class="price">R300</span></div>
-                    <div class="item"><span>Classic Mani</span><span class="price">R250</span></div>
-                    <p class="description">Scrub, foot file, cuticle work, massage.</p>
-                </section>
-
-                <section class="add-ons-section">
-                    <h2>Add Ons</h2>
-                    <div class="add-ons-grid">
-                        <div class="item"><span>Nail Art</span><span class="price">R10/20</span></div>
-                        <div class="item"><span>French/Chrome/Ombre</span><span class="price">R50</span></div>
-                        <div class="item"><span>Nail Fix</span><span class="price">R40</span></div>
-                        <div class="item"><span>Gel Overlay Add-On</span><span class="price">R80</span></div>
-                    </div>
-                </section>
+            <div class="card special">
+                <h2>Add Ons</h2>
+                <div class="service-item"><span>Nail Art</span><span class="price-tag">R10-20</span></div>
+                <div class="service-item"><span>Chrome/Ombre</span><span class="price-tag">R50</span></div>
+                <div class="service-item"><span>French Tips</span><span class="price-tag">R50</span></div>
+                <div class="service-item"><span>Nail Fix</span><span class="price-tag">R40</span></div>
+                <div class="service-item"><span>Soak Off Ext.</span><span class="price-tag">R100</span></div>
             </div>
         </div>
     </div>
-
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById('nav');
-            nav.classList.toggle('active');
-        }
-
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('nav').classList.remove('active');
-            });
-        });
-    </script>
 
 </body>
 </html>
